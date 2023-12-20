@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- a) Adding a tag to make it scale 1 to 1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- d) Providing an element that displays in the browser bar for screen readers -->
+    <title>Accessible Responsive Image</title>
 </head>
 <body>
     <main>
-        <h3>Responsive Image</h3>
+        <!-- e) Fixing the issue with the provided headings for screen readers -->
+        <h1>Responsive Image Example</h1>
         <figure>
             <picture>
-                <source srcset="readmeimages/400x600.png"
-                    media="(orientation: portrait)">
-                <img src="readmeimages/728x200.png" />
+                <!-- Media attribute to differentiate between portrait and landscape orientation -->
+                <source srcset="readmeimages/400x600.png" media="(orientation: portrait)">
+                <!-- b) Making the image fit within the viewport -->
+                <!-- c) Providing text for a screen reader -->
+                <img src="readmeimages/728x200.png" alt="A responsive placeholder image" style="max-width:100%; height:auto;">
             </picture>
-            <figcaption>responsive placeholder image</figcaption>
+            <figcaption>Responsive placeholder image</figcaption>
         </figure>
     </main>
 </body>
