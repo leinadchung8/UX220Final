@@ -3,25 +3,45 @@
 
 <head>
     <style>
+        /* Add the handwriting font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        /* Style for the input field */
+        input {
+            color: black; /* Makes the text entered black */
+        }
+
+        /* Style for the placeholder */
+        input::placeholder {
+            color: lightgrey; /* Makes the placeholder text light grey */
+        }
+
+        /* Style for the answer */
+        #answer {
+            color: red; /* Makes the text red */
+            line-height: 200%; /* Twice the normal height */
+            font-family: 'Dancing Script', cursive; /* Handwriting font */
+        }
     </style>
 </head>
 
 <body>
     <h1>The magic 8 ball</h1>
-    <input /><br />
-    <x-magic />
+    <!-- Input with a placeholder -->
+    <input placeholder="Ask me anything"/><br />
+    <x-magic></x-magic>
     <script>
-        class Magic8Ball extends HTMLElement{
-            connectedCallback(){
+        class Magic8Ball extends HTMLElement {
+            connectedCallback() {
                 this.innerHTML = 
-`
-    <button id="question">Ask</button>
-    <p id="answer"></p>
-`
-                this.button = document.querySelector("#question");
-                this.button.addEventListener("click", ()=>{
-                    const answer = document.querySelector("#answer");
-                    const aAnswers=["yes", "definitely", "no"];
+                `
+                    <button id="question">Ask</button>
+                    <p id="answer"></p>
+                `
+                this.button = this.querySelector("#question");
+                this.button.addEventListener("click", () => {
+                    const answer = this.querySelector("#answer");
+                    const aAnswers=["Yes", "Definitely", "No"];
                     const nAnswer = Math.floor(Math.random() * aAnswers.length);
                     answer.innerHTML = aAnswers[nAnswer];
                 })
