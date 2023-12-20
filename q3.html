@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where in the World is Rich</title>
+    <script>
+        class CurrentYear extends HTMLElement {
+            connectedCallback() {
+                const year = new Date().getFullYear();
+                this.innerHTML = `&copy; ${year} Rich`;
+            }
+        }
+        customElements.define("current-year", CurrentYear);
+    </script>
+</head>
+
+<body>
+    <h1>Where in the World is Rich</h1>
+    <p>Rich was here</p>
+    <footer>
+        <current-year></current-year>
+    </footer>
+</body>
+
+</html>
